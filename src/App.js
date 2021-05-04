@@ -6,16 +6,17 @@ function App() {
     'Take the rubbish out',
   ]);
 
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState('');
 
-  const addTodo = e => {
-    setTodos([...todos, input])
-  }
+  const addTodo = (e) => {
+    setTodos([...todos, input]);
+    setInput('');
+  };
 
   return (
     <div className="App">
       <h1>Greeting from Temie! 📣 🎈 👍 ✌ </h1>
-      <input value={input} onChange={e => setInput(e.target.value)}/>
+      <input value={input} onChange={(e) => setInput(e.target.value)} />
       <button onClick={addTodo}>Add todo</button>
       <ul>
         {todos.map((todo) => (
