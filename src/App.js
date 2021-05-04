@@ -29,6 +29,7 @@ function App() {
         />
         <Button
           type="submit"
+          disabled={!input}
           onClick={addTodo}
           variant="contained"
           color="primary"
