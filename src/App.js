@@ -9,7 +9,7 @@ function App() {
   const [input, setInput] = useState('')
 
   const addTodo = e => {
-    console.log('⛽');
+    setTodos([...todos, input])
   }
 
   return (
