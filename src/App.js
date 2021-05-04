@@ -27,7 +27,12 @@ function App() {
           onChange={(e) => setInput(e.target.value)}
           ref={inputRef}
         />
-        <Button onClick={addTodo} variant="contained" color="primary">
+        <Button
+          type="submit"
+          onClick={addTodo}
+          variant="contained"
+          color="primary"
+        >
           Add todo
         </Button>
       </form>
