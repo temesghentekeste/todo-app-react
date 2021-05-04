@@ -7,11 +7,16 @@ function App() {
   ]);
 
   const [input, setInput] = useState('')
+
+  const addTodo = e => {
+    console.log('⛽');
+  }
+
   return (
     <div className="App">
       <h1>Greeting from Temie! 📣 🎈 👍 ✌ </h1>
       <input value={input} onChange={e => setInput(e.target.value)}/>
-      <button>Add todo</button>
+      <button onClick={addTodo}>Add todo</button>
       <ul>
         {todos.map((todo) => (
           <li> ✔️ {todo}</li>
