@@ -18,12 +18,15 @@ function App() {
   return (
     <div className="App">
       <h1>Greeting from Temie! 📣 🎈 👍 ✌ </h1>
-      <input
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        ref={inputRef}
-      />
-      <button onClick={addTodo}>Add todo</button>
+      <form>
+        <input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          ref={inputRef}
+        />
+        <button onClick={addTodo}>Add todo</button>
+      </form>
+
       <ul>
         {todos.map((todo) => (
           <li> ✔️ {todo}</li>
