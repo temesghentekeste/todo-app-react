@@ -5,10 +5,12 @@ function App() {
     'Take dogs for a walk',
     'Take the rubbish out',
   ]);
+
+  const [input, setInput] = useState('')
   return (
     <div className="App">
       <h1>Greeting from Temie! 📣 🎈 👍 ✌ </h1>
-      <input />
+      <input value={input} onChange={e => setInput(e.target.value)}/>
       <button>Add todo</button>
       <ul>
         {todos.map((todo) => (
