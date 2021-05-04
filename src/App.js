@@ -1,5 +1,7 @@
 import { useState, useRef } from 'react';
+import { Button } from '@material-ui/core';
 import './App.css';
+
 function App() {
   const [todos, setTodos] = useState([
     'Take dogs for a walk',
@@ -25,7 +27,9 @@ function App() {
           onChange={(e) => setInput(e.target.value)}
           ref={inputRef}
         />
-        <button onClick={addTodo}>Add todo</button>
+        <Button onClick={addTodo} variant="contained" color="primary">
+          Add todo
+        </Button>
       </form>
 
       <ul>
