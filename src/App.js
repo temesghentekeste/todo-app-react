@@ -10,6 +10,7 @@ function App() {
   const inputRef = useRef();
 
   const addTodo = (e) => {
+    e.preventDefault();
     setTodos([...todos, input]);
     setInput('');
     inputRef.current.focus();
