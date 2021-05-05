@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Button } from '@material-ui/core';
+import { Button, FormControl, Input, InputLabel } from '@material-ui/core';
 import './App.css';
 
 function App() {
@@ -21,8 +21,9 @@ function App() {
   return (
     <div className="App">
       <h1>Greeting from Temie! 📣 🎈 👍 ✌ </h1>
-      <form>
-        <input
+      <FormControl>
+        <InputLabel>Write Something...</InputLabel>
+        <Input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           ref={inputRef}
@@ -36,7 +37,7 @@ function App() {
         >
           Add todo
         </Button>
-      </form>
+      </FormControl>
 
       <ul>
         {todos.map((todo) => (
