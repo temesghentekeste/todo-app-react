@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 
-const Todo = ({text}) => {
+const Todo = ({ text }) => {
   return (
-    <li>{text}</li>
-  )
-}
+    <List>
+      <ListItem button>
+        <ListItemText inset primary="Todo..." secondary={text} />
+      </ListItem>
+    </List>
+  );
+};
 
-export default Todo
+export default Todo;
