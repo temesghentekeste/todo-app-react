@@ -5,7 +5,7 @@ const Todo = ({ text }) => {
   return (
     <List>
       <ListItem button>
-        <ListItemText inset primary="Todo..." secondary={text} />
+        <ListItemText inset primary={text} secondary="Dummy Deadline ⏲ " />
       </ListItem>
     </List>
   );
