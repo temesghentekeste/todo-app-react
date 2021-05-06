@@ -1,9 +1,9 @@
 import React from 'react';
-import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { List, ListItem, ListItemText } from '@material-ui/core';
 
 const Todo = ({ text }) => {
   return (
-    <List>
+    <List className="todo__list">
       <ListItem button>
         <ListItemText inset primary={text} secondary="Dummy Deadline ⏲ " />
       </ListItem>
