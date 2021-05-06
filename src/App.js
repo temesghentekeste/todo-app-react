@@ -18,8 +18,10 @@ function App() {
 
   const addTodo = (e) => {
     e.preventDefault();
-    setTodos([...todos, input]);
-    setInput('');
+
+    db.collection('todos').add({
+      todo: input
+    })
     inputRef.current.focus();
   };
 
