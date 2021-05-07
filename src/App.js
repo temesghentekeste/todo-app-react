@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
 import { Button, FormControl, Input, InputLabel } from '@material-ui/core';
-import firebase from 'firebase'
+import firebase from 'firebase';
 import './App.css';
 import Todo from './Todo';
 import db from './firebase';
+import uniqid from 'uniqid';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -12,19 +13,22 @@ function App() {
   const inputRef = useRef();
 
   useEffect(() => {
-    db.collection('todos').orderBy('timestamp', 'desc').onSnapshot((snapshot) => {
-      setTodos(snapshot.docs.map((doc) => ({id: doc.data().id, todo: doc.data().todo})));
-    });
+    db.collection('todos')
+      .orderBy('timestamp', 'desc')
+      .onSnapshot((snapshot) => {
+        setTodos(snapshot.docs.map((doc) => ({id: doc.data().id, todo: doc.data().todo})));
+      });
   }, []);
 
   const addTodo = (e) => {
     e.preventDefault();
 
     db.collection('todos').add({
+      id: uniqid(),
       todo: input,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
-    setInput('')
+    setInput('');
     inputRef.current.focus();
   };
 
