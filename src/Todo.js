@@ -1,11 +1,13 @@
 import React from 'react';
-import { List, ListItem, ListItemText } from '@material-ui/core';
+import { Button, List, ListItem, ListItemText } from '@material-ui/core';
 
-const Todo = ({ text }) => {
+const Todo = ({ todo }) => {
+
   return (
     <List className="todo__list">
       <ListItem button>
-        <ListItemText inset primary={text} secondary="Dummy Deadline ⏲ " />
+        <ListItemText inset primary={todo.todo} secondary="Dummy Deadline ⏲ " />
+        <Button>DELETE</Button>
       </ListItem>
     </List>
   );
