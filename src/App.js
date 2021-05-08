@@ -4,7 +4,6 @@ import firebase from 'firebase';
 import './App.css';
 import Todo from './Todo';
 import db from './firebase';
-import uniqid from 'uniqid';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -30,7 +29,6 @@ function App() {
     e.preventDefault();
 
     db.collection('todos').add({
-      id: uniqid(),
       todo: input,
       inprogress: false,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
