@@ -3,10 +3,8 @@ import { Button, List, ListItem, ListItemText } from '@material-ui/core';
 import db from './firebase';
 const Todo = ({ todo }) => {
   const handleDelete = (id) => {
-    console.log('Delete', id, typeof id);
     db.collection('todos').doc(id).delete();
     const todoRef = db.collection('todos').doc(id);
-    console.log(todoRef);
   };
 
   const handleInProgress = (todo) => {
