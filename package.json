@@ -1,6 +1,10 @@
 {
   "name": "todo-app-react",
   "version": "0.1.0",
+  "engines": {
+    "node": "14.x",
+    "npm": "7.x"
+  },
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
