@@ -16,7 +16,13 @@ function App() {
     db.collection('todos')
       .orderBy('timestamp', 'desc')
       .onSnapshot((snapshot) => {
-        setTodos(snapshot.docs.map((doc) => ({id: doc.id, todo: doc.data().todo})));
+        setTodos(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            todo: doc.data().todo,
+            inprogress: doc.data().inprogress,
+          }))
+        );
       });
   }, []);
 
@@ -26,6 +32,7 @@ function App() {
     db.collection('todos').add({
       id: uniqid(),
       todo: input,
+      inprogress: false,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
     setInput('');
