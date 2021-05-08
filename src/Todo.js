@@ -13,7 +13,7 @@ const Todo = ({ todo }) => {
   return (
     <List className="todo__list">
       <ListItem button>
-        <ListItemText inset primary={todo.todo} secondary="Dummy Deadline ⏲ " />
+        <ListItemText inset primary={todo.todo} secondary={ todo.inprogress ? "In Progress" : "Comleted" }/>
         <Button onClick={e => handleDelete(todo.id)}>DELETE</Button>
       </ListItem>
     </List>

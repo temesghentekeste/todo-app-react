@@ -30,7 +30,7 @@ function App() {
 
     db.collection('todos').add({
       todo: input,
-      inprogress: false,
+      inprogress: true,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
     setInput('');
