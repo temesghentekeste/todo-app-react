@@ -13,8 +13,20 @@ const Todo = ({ todo }) => {
   return (
     <List className="todo__list">
       <ListItem button>
-        <ListItemText inset primary={todo.todo} secondary={ todo.inprogress ? "In Progress" : "Comleted" }/>
-        <Button onClick={e => handleDelete(todo.id)}>DELETE</Button>
+        <ListItemText
+          inset
+          color="primary"
+          primary={todo.todo}
+          secondary={todo.inprogress ? 'In Progress' : 'Comleted'}
+        />
+        <Button>Done ⏲ </Button>
+        <Button
+          onClick={(e) => handleDelete(todo.id)}
+          vaiant="contained"
+          color="secondary"
+        >
+          DELETE 🗑 
+        </Button>
       </ListItem>
     </List>
   );
