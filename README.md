@@ -6,7 +6,7 @@ Todo App React is a simple React project used to track daily todos. Firebase fir
 
 ### Home Page
 
-![screenshot](./public/screenshot.png)
+![screenshot](./public/screenshot2.png)
 
 
 ## 🔴 Live Demo
