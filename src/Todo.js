@@ -36,11 +36,11 @@ const Todo = ({ todo }) => {
     setOpen(false);
   };
 
-  const updateTodo = () => {
+  const updateTodo = (todo) => {
     const todosRef = db.collection('todos').doc(todo.id);
 
     // Set the 'capital' field of the city
-    todosRef.update({ input: input});
+    todosRef.update({ todo: input});
     setOpen(false);
   };
   const handleDelete = (id) => {
