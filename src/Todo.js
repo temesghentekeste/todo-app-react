@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, List, ListItem, ListItemText } from '@material-ui/core';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import db from './firebase';
 const Todo = ({ todo }) => {
   const handleDelete = (id) => {
@@ -30,7 +31,7 @@ const Todo = ({ todo }) => {
           vaiant="contained"
           color="secondary"
         >
-          DELETE 🗑
+           <DeleteForeverIcon/>
         </Button>
       </ListItem>
     </List>
