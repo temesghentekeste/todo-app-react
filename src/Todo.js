@@ -30,18 +30,22 @@ const useStyles = makeStyles((theme) => ({
 const Todo = ({ todo }) => {
   const [open, setOpen] = useState();
   const classes = useStyles();
-  const [input, setInput] = useState();
+  const [input, setInput] = useState(todo.todo);
 
   const handleClose = () => {
     setOpen(false);
   };
 
-  const handleOpen = () => {
-    setOpen(true);
+  const updateTodo = () => {
+    const todosRef = db.collection('todos').doc(todo.id);
+
+    // Set the 'capital' field of the city
+    todosRef.update({ input: input});
+    setOpen(false);
   };
   const handleDelete = (id) => {
     db.collection('todos').doc(id).delete();
-    const todoRef = db.collection('todos').doc(id);
+    // const todoRef = db.collection('todos').doc(id);
   };
 
   const handleInProgress = (todo) => {
@@ -64,6 +68,7 @@ const Todo = ({ todo }) => {
             />
             <Button
               disabled={!input}
+              onClick={() => updateTodo(todo)}
               variant="contained"
               color="primary"
             >
