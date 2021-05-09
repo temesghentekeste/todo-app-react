@@ -1,8 +1,14 @@
-import React from 'react';
-import { Button, List, ListItem, ListItemText } from '@material-ui/core';
+import { useState} from 'react';
+import { Button, List, ListItem, ListItemText, Modal } from '@material-ui/core';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import db from './firebase';
+
 const Todo = ({ todo }) => {
+  const [open, setOpen] = useState();
+  
+  const handleClose = () => {
+    setOpen(false)
+  }
   const handleDelete = (id) => {
     db.collection('todos').doc(id).delete();
     const todoRef = db.collection('todos').doc(id);
@@ -16,25 +22,33 @@ const Todo = ({ todo }) => {
   };
 
   return (
-    <List className="todo__list">
-      <ListItem button>
-        <ListItemText
-          inset
-          primary={todo.todo}
-          secondary={todo.inprogress ? 'In Progress' : 'Comleted'}
-        />
-        <Button color="primary" onClick={() => handleInProgress(todo)}>
-          Done ⏲{' '}
-        </Button>
-        <Button
-          onClick={(e) => handleDelete(todo.id)}
-          vaiant="contained"
-          color="secondary"
-        >
-           <DeleteForeverIcon/>
-        </Button>
-      </ListItem>
-    </List>
+    <>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      ></Modal>
+      <List className="todo__list">
+        <ListItem button>
+          <ListItemText
+            inset
+            primary={todo.todo}
+            secondary={todo.inprogress ? 'In Progress' : 'Comleted'}
+          />
+          <Button color="primary" onClick={() => handleInProgress(todo)}>
+            Done ⏲{' '}
+          </Button>
+          <Button
+            onClick={(e) => handleDelete(todo.id)}
+            vaiant="contained"
+            color="secondary"
+          >
+            <DeleteForeverIcon />
+          </Button>
+        </ListItem>
+      </List>
+    </>
   );
 };
 
