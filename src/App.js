@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Greeting from Temie! 🚀 ✌ 📣 👍 🎈 </h1>
+      <h1>Greeting from Temesghen! 🚀 ✌ 📣 👍 🎈 </h1>
       <FormControl>
         <InputLabel>✅ Write Something...</InputLabel>
         <Input
